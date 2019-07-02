@@ -4,7 +4,7 @@ using namespace std;
 const int SIZE = 100;
 long long F[SIZE];
 
-void genmap(){
+void seed(){
     F[0] = 0; F[1] = 1; F[2] = 1; F[3] = 2;
     for(int i = 4; i <= SIZE; i++) F[i] = 0;
 }
@@ -27,7 +27,7 @@ long long fib(int n){
 }
 
 int main(){
-    genmap();
+    seed();
     
     int i;
     cin >> i;
