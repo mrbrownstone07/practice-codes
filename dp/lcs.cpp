@@ -42,6 +42,11 @@ void lcs(string s1, string s2){
     while (!out.empty()){cout << out.top(); out.pop();}
     cout << ", " << M[l1][l2] << "\n";
 
+    for(int i = 0; i <= l1; i++){
+        for(int j = 0; j <= l2; j++) cout << " | "<< M[i][j];
+        cout << "\n---------------------------------\n";
+    }
+
     freeMem();
 }
 

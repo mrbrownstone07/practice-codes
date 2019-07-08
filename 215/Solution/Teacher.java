@@ -23,7 +23,7 @@ abstract class Teacher extends Person{
         this.numberOfCourses = numberOfCourses;
     }
 
-    public abstract int getSalary();
+    public abstract double getSalary();
     
     public void printCourses(){
         for(int i = 0; i < numberOfCourses; i++) 

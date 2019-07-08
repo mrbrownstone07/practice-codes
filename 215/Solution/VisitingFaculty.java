@@ -1,5 +1,5 @@
 class VisitingFaculty extends Teacher{
-    private final int salary = 8000;
+    private final double salary = 8000;
 
 
     public VisitingFaculty() {
@@ -11,7 +11,7 @@ class VisitingFaculty extends Teacher{
     }
 
     @Override
-    public int getSalary() {
+    public double getSalary() {
         return this.salary + ((this.salary / 100) * 20) * super.getNumberOfCourses();
     }
 

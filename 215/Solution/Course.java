@@ -1,6 +1,10 @@
 class Course{
     private String name;
     private String courseCode;
+    // private Teacher Tname;
+    // private Student[] students = new Student[35];  //bonus marks solution
+    // private static int CourseId = 1;
+
 
     public Course() {
     }

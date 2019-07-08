@@ -1,5 +1,5 @@
 class PermanentFaculty extends Teacher{
-    private final int salary = 10000;
+    private final double salary = 10000;
     public PermanentFaculty() {
     }
 
@@ -8,7 +8,7 @@ class PermanentFaculty extends Teacher{
     }
 
     @Override
-    public int getSalary() {
+    public double getSalary() {
         return this.salary + ((this.salary / 100) * 20) * super.getNumberOfCourses();
     }
 
