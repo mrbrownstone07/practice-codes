@@ -1,7 +1,5 @@
 abstract class Teacher extends Person{
-    private Course courses[] = new Course[10];
-    private int numberOfCourses = 0;
-   
+
     public Teacher() {
     }
 
@@ -9,26 +7,10 @@ abstract class Teacher extends Person{
         super(name, age, address);
     }
 
-    public void addCourse(Course newCourse){
-        if(numberOfCourses < 10)
-            courses[numberOfCourses++] = newCourse;
-        else System.out.println("Maximum NUmber of courses");
-    }
-
-    public int getNumberOfCourses() {
-        return this.numberOfCourses;
-    }
-
-    public void setNumberOfCourses(int numberOfCourses) {
-        this.numberOfCourses = numberOfCourses;
-    }
-
     public abstract double getSalary();
-    
-    public void printCourses(){
-        for(int i = 0; i < numberOfCourses; i++) 
-            System.out.println(courses[i].toString());
-    }
+    public abstract void addCourse(Course newCourse);
+    public abstract int getNumberOfCourses();
+    public abstract void printCourses();
 
     @Override
     public String toString() {

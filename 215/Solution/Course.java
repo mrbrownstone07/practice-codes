@@ -1,17 +1,19 @@
 class Course{
     private String name;
     private String courseCode;
-    // private Teacher Tname;
-    // private Student[] students = new Student[35];  //bonus marks solution
-    // private static int CourseId = 1;
-
+    private Teacher faculty;
+    private Grade[] grades = new Grade[35];
+    //private boolean showGrades = false;
+    private int numberOfStudents = 0;
 
     public Course() {
+        for(int i = 0; i < 35; i++) grades[i] = new Grade();
     }
 
     public Course(String name, String courseCode) {
         this.name = name;
         this.courseCode = courseCode;
+        for(int i = 0; i < 35; i++) grades[i] = new Grade();
     }
 
     public String getName() {
@@ -38,6 +40,53 @@ class Course{
     public Course courseCode(String courseCode) {
         this.courseCode = courseCode;
         return this;
+    }
+
+    public void setFaculty(Teacher faculty){
+        this.faculty = faculty;
+    }
+
+    public Teacher getFaculty() {
+        return this.faculty;
+    }
+
+    public int getNumberOfStudents() {
+        return numberOfStudents;
+    }
+
+    public void setNumberOfStudents(int numberOfStudents) {
+        this.numberOfStudents = numberOfStudents;
+    }
+
+    public Grade getGrade(String id){
+        for(int i = 0; i < numberOfStudents; i++){
+            if(grades[i].getStudent().getId() == id)
+                return grades[i];
+        }
+        return null;
+    }
+
+    public void submitGrade(double grade, String id){
+        boolean found = false;
+        for(int i = 0; i < this.numberOfStudents; i++){
+            if(id == grades[i].getStudent().getId()){
+                grades[i].setGrade(grade);
+                found = true;
+            }
+        }
+        if(!found) System.out.println("Student with id " + id + " not found");
+    }
+
+
+    public void addStudent(Student s){
+        if(this.getNumberOfStudents() < 35){
+            grades[this.numberOfStudents++].setStudent(s);
+        }
+    }
+
+    public void printGrades(){
+        for(int i = 0; i < numberOfStudents; i++)
+            System.out.println(grades[i].toString());
     }
 
     @Override
