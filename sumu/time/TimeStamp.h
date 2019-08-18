@@ -7,10 +7,10 @@ class TimeStamp
     public:
         TimeStamp();
         TimeStamp(int hour, int sec, int min);
-        bool operator == (TimeStamp);
-        bool operator != (TimeStamp);
-        bool operator > (TimeStamp);
-        bool operator < (TimeStamp);
+        bool operator == (const TimeStamp&);
+        bool operator != (const TimeStamp&);
+        bool operator > (const TimeStamp&);
+        bool operator < (const TimeStamp&);
 
 
         void Print();

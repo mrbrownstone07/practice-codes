@@ -3,11 +3,11 @@ class Driver{
             
         Course c1 = new Course("Programming Language 2", "215");
         Course c2 = new Course("Programming Language 1", "115");
-        Course c3 = new Course("Data Structures and Algorithms", "225");
+        //Course c3 = new Course("Data Structures and Algorithms", "225");
         Course c4 = new Course("Microprocessors", "331");
         Course c5 = new Course("Database Management", "311");
-        Course c6 = new Course("Operating Systems", "323");
-        Course c7 = new Course("DLD", "231");
+        //Course c6 = new Course("Operating Systems", "323");
+        //Course c7 = new Course("DLD", "231");
 
 
         // // // Student one

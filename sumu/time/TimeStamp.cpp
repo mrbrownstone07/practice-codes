@@ -17,24 +17,22 @@ TimeStamp::TimeStamp(int hour, int min, int sec){
 void TimeStamp::Print(){
     cout<< hour << ":" << min << ":" << sec<< "\n";
 }
-bool TimeStamp::operator == (TimeStamp S)
-{
-    return (this->hour == S.hour && this->min == S.min && this->sec == S.sec);
-
+bool TimeStamp::operator == (const TimeStamp& S){
+    return (hour == S.hour && min == S.min && sec == S.sec);
 }
-bool TimeStamp::operator != (TimeStamp S)
-{
-    return (this->hour != S.hour || this->min != S.min || this->sec != sec);
-
+bool TimeStamp::operator != (const TimeStamp& S){
+    return (hour != S.hour || min != S.min || sec != S.sec);
 }
-bool TimeStamp::operator > (TimeStamp S)
-{
-    return(this->hour > S.hour && this->min > S.min && this->sec > S.sec);
-
+bool TimeStamp::operator > (const TimeStamp& S){
+    if(hour > S.hour) {return true;}
+    if(hour == S.hour && min > S.min) {return true;}
+    if(hour == S.hour && min == S.min && sec > S.sec) {return true;}   
+    return false;
 }
-bool TimeStamp::operator < (TimeStamp S)
-{
-    return(this->hour < S.hour && this->min < S.min && this->sec < S.sec);
-
+bool TimeStamp::operator < (const TimeStamp& S){
+    if(hour < S.hour) {return true;}
+    if(hour == S.hour && min < S.min) {return true;}
+    if(hour == S.hour && min == S.min && sec == S.sec) {return true;}
+    return false;
 }
 

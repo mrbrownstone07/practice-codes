@@ -1,6 +1,4 @@
 #include "Sortedtype.h"
-#include "TimeStamp.cpp"
-
 #include <iostream>
 using namespace std;
 template <class ItemType>
@@ -27,7 +25,7 @@ void Sortedtype<ItemType>::ResetList()
 }
 template <class ItemType>
 void Sortedtype<ItemType>:: GetNextItem (ItemType& item)
-{
+{   
     currentPos++;
     item = info [currentPos];
 }
@@ -40,14 +38,12 @@ void Sortedtype<ItemType>::InsertItem(ItemType item)
     while (moreToSearch)
     {
         if (item>info[location]) {
-            cout << "*";
             location++;
             moreToSearch = (location < length);
 
         }
         else if (item <info[location]){
             moreToSearch = false;
-            cout << "&";
         }    
     }
     for (int index = length; index > location; index--)
