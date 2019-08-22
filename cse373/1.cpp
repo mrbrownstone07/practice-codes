@@ -6,10 +6,13 @@ using namespace std;
 set<int> numbers;
 set<vector<int>> result;
 
-void backTrack(int x, vector<int>& subResult, set<int>::iterator& it){
+void backTrack(int x, vector<int>& subResult, set<int>::iterator it){
     if(x < 0) return;
-    if(x == 0) result.insert(subResult);
-    
+    if(x == 0) {
+        result.insert(subResult);
+        return;
+    }
+
     while(it != numbers.end() && (x - *it) >= 0){
         subResult.push_back(*it);
         backTrack((x - *it), subResult, it);
@@ -41,11 +44,13 @@ int main(){
 
     findCombinations(x);
 
-    for(set<vector<int>>::iterator it = result.begin(); it != result.end(); it++){
-        vector<int> sub = (*it);
-        cout << sub.size() << ",";
-    }cout << "\n";
-
-    set<vector<int>>::iterator it = result.begin();
-    cout << ((*it).size() >= 1 ? (*it).size() : -1) << "\n";
+    if(result.size() == 0) cout << "-1\n";
+    else{
+        int lowest = 999999999;
+        for(set<vector<int>>::iterator it = result.begin(); it != result.end(); it++){
+            vector<int> sub = (*it);
+            if(sub.size() < lowest) lowest = sub.size();
+        }
+        cout << lowest << "\n";
+    }
 }
