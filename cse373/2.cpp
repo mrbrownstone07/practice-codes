@@ -1,4 +1,4 @@
-#include <bits/stdc++.h> 
+#include <iostream>
 using namespace std; 
   
 int main(){
@@ -8,21 +8,21 @@ int main(){
     int arr[n];
     for(int i = 0; i < n; i++) cin >> arr[i];
     
-    int longestSubSequence = 1, buffer, lastNumber[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    int lss = 0, buff, mem[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-    for(buffer = arr[0]; buffer > 0; lastNumber[buffer%10] = 1, buffer /= 10);
+    for(buff = arr[0]; buff > 0; mem[buff%10] = 1, buff /= 10);
     for(int i = 1; i < n; i++){
-        int currentNumber[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-        for(buffer = arr[0]; buffer > 0; currentNumber[buffer%10] = 1, buffer /= 10);
+        int curNum[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        for(buff = arr[i]; buff > 0; curNum[buff%10] = 1, buff /= 10);
 
         for(int j = 0; j < 10; j++){
-            if(currentNumber[j]){
-                lastNumber[j]++;
-                longestSubSequence = max(longestSubSequence, lastNumber[j]);
+            if(curNum[j]){
+                mem[j]++;
+                lss = max(lss, mem[j]);
             } 
         }
 
-        for(int j = 0; j < 10; j++) if(currentNumber[j]) lastNumber[j] = longestSubSequence;
+        for(int j = 0; j < 10; j++) if(curNum[j]) mem[j] = lss;
     }
-    cout << longestSubSequence << "\n";
+    cout << lss << "\n";
 }
